@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useRef } from "react";
 import CheckoutSteps from "../cart/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
-
 import { Typography } from "@material-ui/core";
 import { useAlert } from "react-alert";
 import {
