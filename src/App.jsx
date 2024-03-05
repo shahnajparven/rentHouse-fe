@@ -57,7 +57,7 @@ const App = () => {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await apiInstance.get("/api/v1/stripeapikey");
+    const { data } = await apiInstance.get("stripeapikey");
 
     setStripeApiKey(data.stripeApiKey);
   }
@@ -74,19 +74,25 @@ const App = () => {
       <Navigation isAuthenticated={isAuthenticated} />
 
       {isAuthenticated && <UserOptions user={user} />}
-      <Routes>
-      <Route element={<ProtectedRoute />}>
-      {stripeApiKey && (
+
+      {/* {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
-          <Route
+          <ProtectedRoute
             path="/process/payment"
             element={<Payment />}
           />
         </Elements>
-      )}
-      </Route>
+      )} */}
 
+      <Elements stripe={loadStripe(stripeApiKey)}>
+        <Routes>
+          <Route exact path="/process/payment" element={<ProtectedRoute />}>
+            <Route exact path="/process/payment" element={<Payment />} />
+          </Route>
+        </Routes>
+      </Elements>
 
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route extact path="/Category" element={<Category />} />
         <Route extact path="/Pickup" element={<Pickup />} />

@@ -12,13 +12,13 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-import axios from "axios";
 import "./Payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../../actions/orderAction";
 import { useNavigate } from "react-router-dom";
+import apiInstance from "../../config/axios";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -58,8 +58,8 @@ const Payment = () => {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.post(
-        "/api/v1/payment/process",
+      const { data } = await apiInstance.post(
+        "payment/process",
         paymentData,
         config
       );
@@ -109,7 +109,6 @@ const Payment = () => {
     }
   };
 
-
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -119,7 +118,6 @@ const Payment = () => {
 
   return (
     <Fragment>
-
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>

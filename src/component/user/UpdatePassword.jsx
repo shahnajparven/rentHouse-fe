@@ -9,7 +9,7 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useNavigate } from "react-router-dom";
-import { Box, Toolbar } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 const UpdatePassword = () => {
   const navigate = useNavigate();
