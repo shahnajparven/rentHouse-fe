@@ -47,8 +47,8 @@ import UsersList from "./component/admin/UserList.jsx";
 import UpdateUser from "./component/admin/UpdateUser.jsx";
 import ProcessOrder from "./component/admin/ProcessOrder.jsx";
 import PickupList from "./component/admin/PickupList.jsx";
-import Renthouse from "./component/category/Renthouse.jsx";
-import RenthouseChart from "./component/category/RenthouseChart.jsx";
+// import Renthouse from "./component/category/Renthouse.jsx";
+// import RenthouseChart from "./component/category/RenthouseChart.jsx";
 import Bannerr from "./component/Home/Bannerr.jsx";
 import apiInstance from "./config/axios.js";
 
@@ -111,8 +111,8 @@ const App = () => {
         <Route path="/sad" element={<Loader />} />
         <Route path="/Productttt" element={<Productttt />} />
 
-        <Route path="/Renthouse" element={<Renthouse />} />
-        <Route path="/RenthouseChart" element={<RenthouseChart />} />
+        {/* <Route path="/Renthouse" element={<Renthouse />} />
+        <Route path="/RenthouseChart" element={<RenthouseChart />} /> */}
 
         <Route path="/NewProduct" element={<NewProduct />} />
         <Route path="/LoginSignup" element={<LoginSignUp />} />
